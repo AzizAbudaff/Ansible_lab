@@ -1,0 +1,16 @@
+---
+# tasks file for php
+
+- name: installing PHP
+  yum:
+    name: "{{ item }}"
+    state: installed
+  loop:  
+    - php
+    - php-mysql
+    
+
+- name: copying the php file
+  copy:
+    src: /root/index.php
+    dest: /var/www/html/index.php
